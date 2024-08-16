@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { Book } from '../domain/book/Book';
+import { Hideable } from './Hideable';
 import { LikeCounter } from './LikeCounter';
 
 interface BookListItemProps {
@@ -29,6 +30,9 @@ export const BookListItem: FC<BookListItemProps> = ({ book }) => {
       {!isFree && <div style={{ color: 'green' }}>{getPriceRating(book.price)}</div>}
       <div className="text-meta">by {book.author}</div>
       <LikeCounter likes={likes} setLikes={setLikes} />
+      <Hideable>
+        <p>{book.abstract}</p>
+      </Hideable>
     </div>
   );
 };
