@@ -13,11 +13,6 @@ export const useBooks = () => {
   };
 
   useEffect(() => {
-    const refreshInterval = setInterval(refresh, 3000 * 1000);
-    return () => clearInterval(refreshInterval);
-  }, []);
-
-  useEffect(() => {
     next('loading', 'Loading books...');
     getBooks()
       .then((books) => {
@@ -30,5 +25,5 @@ export const useBooks = () => {
       });
   }, [next, lastRefresh]);
 
-  return { state, msg, books };
+  return { state, msg, books, refresh };
 };
