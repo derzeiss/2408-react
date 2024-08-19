@@ -3,6 +3,7 @@ import { Book } from '../domain/book/Book';
 import { LikeCounter } from './LikeCounter';
 import { Hideable } from './Hideable';
 import { cx } from '../utils/cx';
+import { Link } from 'react-router-dom';
 
 interface BookListItemProps {
   book: Book;
@@ -22,11 +23,13 @@ export const BookListItem: FC<BookListItemProps> = ({ book }) => {
 
   return (
     <div className={cx('book-list-item', { 'book-list-item_free': isFree })}>
-      <h2>
-        {likes >= 5 && <span className="icon_entry">⭐️</span>}
-        {isFree && <span>💰 </span>}
-        {book.title}
-      </h2>
+      <Link to={`/books/${book.isbn}`}>
+        <h2>
+          {likes >= 5 && <span className="icon_entry">⭐️</span>}
+          {isFree && <span>💰 </span>}
+          {book.title}
+        </h2>
+      </Link>
       <h3>{book.subtitle}</h3>
       {!isFree && <div style={{ color: 'green' }}>{getPriceRating(book.price)}</div>}
       <div className="text-meta">by {book.author}</div>

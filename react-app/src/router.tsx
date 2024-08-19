@@ -5,6 +5,7 @@ import { BooksScreen } from './screens/BooksScreen';
 import { AboutScreen } from './screens/AboutScreen';
 import { getBooks } from './domain/book/api';
 import { BooksErrorScreen } from './screens/BooksErrorScreen';
+import { BookDetailScreen } from './screens/BookDetailScreen';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
         element: <BooksScreen />,
         loader: () => getBooks(),
         errorElement: <BooksErrorScreen />,
+      },
+      {
+        path: '/books/:isbn',
+        element: <BookDetailScreen />,
       },
       {
         path: '/about',
