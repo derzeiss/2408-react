@@ -13,7 +13,7 @@ export const useBooks = () => {
   };
 
   useEffect(() => {
-    const refreshInterval = setInterval(refresh, 30 * 1000);
+    const refreshInterval = setInterval(refresh, 3000 * 1000);
     return () => clearInterval(refreshInterval);
   }, []);
 
