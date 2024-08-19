@@ -24,6 +24,8 @@ const getMaxPages = (books: Book[]) => {
 export const BookList: FC<BookListProps> = ({ books }) => {
   const [primaryColor, setPrimaryColor] = useState('orange');
 
+  if (location.search === '?err') throw new Error('Test error BookList');
+
   return (
     <ThemeContext.Provider value={{ primaryColor, setPrimaryColor }}>
       <div className="book-list">
