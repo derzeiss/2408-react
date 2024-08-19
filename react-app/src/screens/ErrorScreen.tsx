@@ -5,7 +5,7 @@ export const ErrorScreen: FC = () => {
   const error = useRouteError();
 
   const errorMessage = isRouteErrorResponse(error)
-    ? error.statusText
+    ? error.data || error.statusText
     : error instanceof Error
     ? error.message
     : 'An unknown error occurred';
