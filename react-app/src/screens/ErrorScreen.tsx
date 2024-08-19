@@ -10,6 +10,8 @@ export const ErrorScreen: FC = () => {
     ? error.message
     : 'An unknown error occurred';
 
+  console.log(error);
+
   return (
     <div className="error-screen">
       <h1>Oops, something went wrong</h1>

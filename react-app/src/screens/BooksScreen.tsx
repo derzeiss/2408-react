@@ -1,19 +1,21 @@
-import { useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { BookList } from '../components/BookList';
-import { useBooks } from '../domain/book/useBooks';
+import { Book } from '../domain/book/Book';
 
 export const BooksScreen = () => {
-  const { state, msg, books, refresh } = useBooks();
+  const books = useLoaderData() as Book[];
+  // const { state, msg, books, refresh } = useBooks();
 
-  useEffect(() => {
-    const refreshInterval = setInterval(refresh, 3000 * 1000);
-    return () => clearInterval(refreshInterval);
-  }, [refresh]);
+  // useEffect(() => {
+  //   const refreshInterval = setInterval(refresh, 3000 * 1000);
+  //   return () => clearInterval(refreshInterval);
+  // }, [refresh]);
 
   return (
     <div className="books-screen">
-      {state !== 'success' && msg && <div className="error">{msg}</div>}
-      {state === 'success' && <BookList books={books} />}
+      {/* {state !== 'success' && msg && <div className="error">{msg}</div>} */}
+      {/* {state === 'success' && <BookList books={books} />} */}
+      <BookList books={books} />
     </div>
   );
 };

@@ -1,8 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 import App from './App';
 import { ErrorScreen } from './screens/ErrorScreen';
 import { BooksScreen } from './screens/BooksScreen';
 import { AboutScreen } from './screens/AboutScreen';
+import { getBooks } from './domain/book/api';
+import { BooksErrorScreen } from './screens/BooksErrorScreen';
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +14,13 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
+        loader: () => redirect('/books'),
+      },
+      {
+        path: '/books',
         element: <BooksScreen />,
+        loader: () => getBooks(),
+        errorElement: <BooksErrorScreen />,
       },
       {
         path: '/about',
