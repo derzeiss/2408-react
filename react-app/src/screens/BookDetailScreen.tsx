@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useBook } from '../domain/book/useBook';
 
 export const BookDetailScreen: FC = () => {
@@ -19,6 +19,12 @@ export const BookDetailScreen: FC = () => {
         <div className="text-meta">by {book.author}</div>
         <h2 className="m-top m-bottom">{book.price}</h2>
         <p>{book.abstract}</p>
+
+        <Link to="edit" className="m-top">
+          <button>
+            <span>✏️</span> Edit
+          </button>
+        </Link>
       </div>
     );
   };
