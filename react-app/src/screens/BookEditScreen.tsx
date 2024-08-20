@@ -1,11 +1,16 @@
 import { FC, FormEventHandler, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useBook } from '../domain/book/useBook';
 
 export const BookEditScreen: FC = () => {
   const { isbn } = useParams();
   const [title, setTitle] = useState('');
-  const { book } = useBook(isbn);
+  const { book, state } = useBook(isbn);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (state === 'error') navigate(`/books/${isbn}`);
+  }, [isbn, state, navigate]);
 
   useEffect(() => {
     if (!book.title) return;
@@ -32,6 +37,12 @@ export const BookEditScreen: FC = () => {
         <Link to={`/books/${isbn}`}>
           <button type="button" className="secondary">
             cancel
+          </button>
+        </Link>
+
+        <Link to=".." relative="path">
+          <button type="button" className="secondary">
+            cancel relative
           </button>
         </Link>
       </div>
