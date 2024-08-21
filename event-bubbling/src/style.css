@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --c-text: #f0f0f0;
+  --c-bg: #222;
+
+  font: 400 16px/1.5 sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: only dark;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+/* -------------------------- */
+
+.box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+}
+
+.signal-wrapper {
+  width: fit-content;
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.signal {
+  padding: 0rem 0.25rem;
+
+  font-size: 0.875rem;
+
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: none;
+
+  transition: background-color 1s;
+}
+
+.signal_triggered {
+  background-color: #090;
+  transition: none;
+}
+
+.signal_bubble {
+  background-color: #c70;
+  transition: none;
+}
+
+/* -------------------------- */
+
+#root {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 1rem;
+}

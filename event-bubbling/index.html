@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <main id="root">
+      <section>
+        <h1>event-bubbling</h1>
+      </section>
+      <section>
+        <div id="outer" class="box">
+          <div class="signal-wrapper">
+            <button class="signal js--mousedown">onMouseDown</button>
+            <button class="signal js--mouseup">onMouseUp</button>
+            <button class="signal js--click">onClick</button>
+          </div>
+          <div id="middle" class="box">
+            <div class="signal-wrapper">
+              <button class="signal js--mousedown">onMouseDown</button>
+              <button class="signal js--mouseup">onMouseUp</button>
+              <button class="signal js--click">onClick</button>
+            </div>
+
+            <div id="inner" class="box">
+              <div class="signal-wrapper">
+                <button class="signal js--mousedown">onMouseDown</button>
+                <button class="signal js--mouseup">onMouseUp</button>
+                <button class="signal js--click">onClick</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
